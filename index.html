@@ -1,0 +1,1344 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>✨ Universo Chiquititas ✨</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Fredoka:wght@400;500;600;700&display=swap');
+
+:root {
+    --pink: #ff65a3;
+    --pink-light: #ffe0ef;
+    --purple: #a67aff;
+    --yellow: #ffe66d;
+    --blue: #80ddff;
+    --white: #fffafd;
+    --text: #60375f;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Baloo 2', cursive;
+    background: #fff5fb;
+    color: var(--text);
+    overflow-x: hidden;
+}
+
+button, input, textarea {
+    font: inherit;
+}
+
+button, a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+#loading {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: linear-gradient(135deg, #ff76b7, #b69aff, #83dcff);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 12px;
+    color: white;
+    animation: disappear 0.7s ease 1.5s forwards;
+}
+
+.loading-heart {
+    font-size: 65px;
+    animation: heartbeat 0.8s infinite;
+}
+
+@keyframes disappear {
+    to {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+    }
+}
+
+@keyframes heartbeat {
+    50% { transform: scale(1.2); }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0) rotate(-3deg); }
+    50% { transform: translateY(-14px) rotate(3deg); }
+}
+
+@keyframes sparkle {
+    0%, 100% { opacity: .4; transform: scale(.7) rotate(0deg); }
+    50% { opacity: 1; transform: scale(1.2) rotate(25deg); }
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-25px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shine {
+    from { background-position: 0%; }
+    to { background-position: 200%; }
+}
+
+@keyframes rainbow {
+    0% { color: #ff5598; }
+    25% { color: #a67aff; }
+    50% { color: #42bfe8; }
+    75% { color: #ffb347; }
+    100% { color: #ff5598; }
+}
+
+@keyframes rise {
+    from { transform: translateY(0) rotate(0); opacity: 1; }
+    to { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
+}
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(255, 250, 253, .94);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 4px 20px #e8a8d522;
+    border-bottom: 2px solid #ffd4e9;
+}
+
+.navbar {
+    max-width: 1200px;
+    margin: auto;
+    padding: 12px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.logo {
+    font-family: 'Fredoka', cursive;
+    font-size: 25px;
+    font-weight: 700;
+    background: linear-gradient(90deg, #ff5298, #a67aff, #48bfe8);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    white-space: nowrap;
+}
+
+.logo span {
+    display: inline-block;
+    animation: float 3s infinite;
+}
+
+nav {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+nav a {
+    padding: 9px 15px;
+    border-radius: 25px;
+    font-weight: 700;
+    transition: .3s;
+}
+
+nav a:hover, nav a.active {
+    color: white;
+    background: linear-gradient(120deg, var(--pink), var(--purple));
+    transform: translateY(-2px);
+}
+
+.menu-btn {
+    display: none;
+    border: none;
+    background: var(--pink-light);
+    color: var(--text);
+    border-radius: 12px;
+    padding: 7px 12px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+section {
+    padding: 85px 7%;
+    scroll-margin-top: 80px;
+}
+
+.hero {
+    min-height: 88vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    background:
+        radial-gradient(circle at 15% 20%, #fff 0 3px, transparent 4px),
+        radial-gradient(circle at 80% 30%, #fff 0 4px, transparent 5px),
+        linear-gradient(135deg, #ffd8ec, #e9dcff 50%, #d8f5ff);
+}
+
+.hero::before, .hero::after {
+    content: "♡";
+    position: absolute;
+    color: #fff;
+    font-size: 180px;
+    opacity: .4;
+    animation: float 5s ease-in-out infinite;
+}
+
+.hero::before {
+    top: 8%;
+    left: 5%;
+}
+
+.hero::after {
+    bottom: 5%;
+    right: 5%;
+    animation-delay: 1s;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 850px;
+    animation: slideDown 1s ease;
+}
+
+.hero-label {
+    display: inline-block;
+    background: white;
+    color: #ed5299;
+    border: 2px solid #ffb5d7;
+    border-radius: 30px;
+    padding: 7px 20px;
+    margin-bottom: 20px;
+    font-weight: 800;
+    box-shadow: 0 5px 20px #e6a0c533;
+}
+
+.hero h1 {
+    font-family: 'Fredoka', cursive;
+    font-size: clamp(45px, 9vw, 100px);
+    line-height: 1;
+    margin-bottom: 22px;
+    background: linear-gradient(90deg, #ff4d98, #aa70ff, #39bce8, #ff4d98);
+    background-size: 200%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: shine 5s linear infinite;
+}
+
+.hero p {
+    font-size: clamp(17px, 2.5vw, 23px);
+    max-width: 680px;
+    margin: auto;
+    line-height: 1.7;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.btn {
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+    border-radius: 30px;
+    padding: 13px 25px;
+    font-weight: 800;
+    transition: .3s;
+}
+
+.btn:hover {
+    transform: translateY(-5px) scale(1.04);
+    box-shadow: 0 9px 20px #d783bb44;
+}
+
+.btn-primary {
+    color: white;
+    background: linear-gradient(120deg, #ff5d9f, #b277ff);
+}
+
+.btn-secondary {
+    color: #9c57b2;
+    background: white;
+    border: 2px solid #e4b6ff;
+}
+
+.decor {
+    position: absolute;
+    font-size: 30px;
+    pointer-events: none;
+    animation: sparkle 2.5s infinite;
+}
+
+.d1 { top: 22%; left: 17%; }
+.d2 { top: 60%; left: 8%; animation-delay: .5s; }
+.d3 { top: 18%; right: 17%; animation-delay: 1s; }
+.d4 { bottom: 18%; right: 15%; animation-delay: 1.5s; }
+
+.section-title {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.section-title .mini {
+    color: #ef5d9f;
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.section-title h2 {
+    font-family: 'Fredoka', cursive;
+    font-size: clamp(32px, 5vw, 52px);
+    margin: 5px 0 10px;
+    color: #a15dc5;
+}
+
+.section-title p {
+    max-width: 650px;
+    margin: auto;
+    font-size: 17px;
+}
+
+.about {
+    background: var(--white);
+}
+
+.about-grid {
+    max-width: 1100px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.about-card {
+    padding: 30px;
+    border-radius: 25px;
+    background: linear-gradient(145deg, #fff0f8, #f3ebff);
+    border: 2px solid white;
+    box-shadow: 0 8px 25px #dba4d522;
+    transition: .4s;
+}
+
+.about-card:hover {
+    transform: translateY(-8px) rotate(-1deg);
+}
+
+.about-card .emoji {
+    font-size: 42px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.about-card h3 {
+    color: #e7549c;
+    font-family: 'Fredoka', cursive;
+    font-size: 25px;
+    margin-bottom: 8px;
+}
+
+.about-card p {
+    line-height: 1.8;
+}
+
+.gallery {
+    background: linear-gradient(180deg, #fff0f8, #f2edff);
+}
+
+.filter-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.filter-btn {
+    border: 2px solid #e5c8ff;
+    color: #925bb1;
+    background: white;
+    padding: 8px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: 800;
+    transition: .3s;
+}
+
+.filter-btn:hover, .filter-btn.active {
+    color: white;
+    border-color: transparent;
+    background: linear-gradient(120deg, #ff6ba7, #ad80ff);
+}
+
+.gallery-grid {
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.gallery-card {
+    background: white;
+    border-radius: 23px;
+    overflow: hidden;
+    box-shadow: 0 7px 25px #c78cb722;
+    transition: .4s;
+    animation: slideDown .6s ease;
+}
+
+.gallery-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 15px 30px #d68fbd44;
+}
+
+.gallery-card.hidden {
+    display: none;
+}
+
+.gallery-image {
+    height: 240px;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #ffc8e3, #d8c7ff);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gallery-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: .5s;
+}
+
+.gallery-card:hover .gallery-image img {
+    transform: scale(1.08);
+}
+
+.image-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-align: center;
+    padding: 20px;
+    color: #8c54aa;
+    background: linear-gradient(135deg, #ffd9eb, #e4d8ff, #d5f5ff);
+}
+
+.image-placeholder .big-emoji {
+    font-size: 65px;
+    animation: float 3s infinite;
+}
+
+.image-placeholder span:last-child {
+    font-size: 13px;
+    opacity: .8;
+}
+
+.gallery-info {
+    padding: 20px;
+}
+
+.gallery-info h3 {
+    color: #e7549c;
+    font-family: 'Fredoka', cursive;
+    font-size: 23px;
+    margin-bottom: 6px;
+}
+
+.gallery-info p {
+    line-height: 1.6;
+    font-size: 15px;
+}
+
+.tag {
+    display: inline-block;
+    margin-top: 12px;
+    background: #ffedf6;
+    color: #db5298;
+    border-radius: 20px;
+    padding: 4px 12px;
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.memory {
+    background: linear-gradient(120deg, #ffb9d9, #d4bfff, #b9efff);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.memory-inner {
+    max-width: 850px;
+    margin: auto;
+    position: relative;
+    z-index: 1;
+}
+
+.memory h2 {
+    font-family: 'Fredoka', cursive;
+    font-size: clamp(32px, 5vw, 55px);
+    color: white;
+    text-shadow: 0 3px 10px #a05b9a33;
+    margin-bottom: 20px;
+}
+
+.memory p {
+    font-size: 20px;
+    line-height: 1.8;
+    color: #67426e;
+}
+
+.memory-heart {
+    font-size: 70px;
+    display: inline-block;
+    margin-bottom: 10px;
+    animation: heartbeat 1.5s infinite;
+}
+
+.fun-facts {
+    background: white;
+}
+
+.facts-grid {
+    max-width: 1000px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.fact {
+    text-align: center;
+    border-radius: 25px;
+    padding: 25px 18px;
+    background: #fff4fa;
+    border: 2px dashed #ffc3e0;
+    transition: .3s;
+}
+
+.fact:nth-child(2) {
+    background: #f5efff;
+    border-color: #d8c0ff;
+}
+
+.fact:nth-child(3) {
+    background: #edfbff;
+    border-color: #b2e9ff;
+}
+
+.fact:hover {
+    transform: scale(1.05) rotate(1deg);
+}
+
+.fact .emoji {
+    font-size: 40px;
+}
+
+.fact h3 {
+    color: #a05fbd;
+    font-family: 'Fredoka', cursive;
+    font-size: 21px;
+    margin: 8px 0;
+}
+
+.contact {
+    background: linear-gradient(145deg, #ffeff7, #f1eaff);
+}
+
+.contact-grid {
+    max-width: 1050px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: .9fr 1.1fr;
+    gap: 30px;
+    align-items: stretch;
+}
+
+.contact-info {
+    padding: 35px;
+    border-radius: 25px;
+    background: linear-gradient(145deg, #ff83b8, #b18aff);
+    color: white;
+}
+
+.contact-info h3 {
+    font-family: 'Fredoka', cursive;
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+.contact-info p {
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.contact-item {
+    background: #ffffff25;
+    padding: 13px 16px;
+    border-radius: 15px;
+    margin-top: 12px;
+}
+
+.contact-form {
+    background: white;
+    padding: 35px;
+    border-radius: 25px;
+    box-shadow: 0 8px 25px #c89aca22;
+}
+
+.contact-form h3 {
+    font-family: 'Fredoka', cursive;
+    color: #a05fbd;
+    font-size: 27px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 17px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 800;
+    margin-bottom: 7px;
+    color: #8e5b9f;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    border: 2px solid #f0d9f0;
+    background: #fffbfe;
+    padding: 12px 15px;
+    border-radius: 13px;
+    outline: none;
+    color: var(--text);
+    transition: .3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    border-color: #d18bff;
+    box-shadow: 0 0 0 4px #d18bff22;
+}
+
+.form-group textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.contact-form .btn {
+    width: 100%;
+    font-size: 17px;
+}
+
+footer {
+    padding: 35px 7%;
+    background: #fff;
+    text-align: center;
+    border-top: 2px solid #ffe0ef;
+}
+
+.footer-logo {
+    font-family: 'Fredoka', cursive;
+    color: #e95c9e;
+    font-size: 25px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+footer p {
+    line-height: 1.8;
+}
+
+.footer-hearts {
+    font-size: 22px;
+    margin-top: 10px;
+}
+
+#topBtn {
+    position: fixed;
+    bottom: 25px;
+    right: 22px;
+    width: 48px;
+    height: 48px;
+    border: none;
+    border-radius: 50%;
+    color: white;
+    background: linear-gradient(135deg, #ff65a3, #a67aff);
+    font-size: 22px;
+    cursor: pointer;
+    box-shadow: 0 5px 20px #c779b755;
+    z-index: 900;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(15px);
+    transition: .3s;
+}
+
+#topBtn.show {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+#floating-hearts {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 2000;
+}
+
+.floating-heart {
+    position: absolute;
+    bottom: -35px;
+    animation: rise linear forwards;
+    user-select: none;
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity .7s ease, transform .7s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (max-width: 850px) {
+    .navbar {
+        flex-wrap: wrap;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    nav {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 10px 0;
+    }
+
+    nav.open {
+        display: flex;
+        animation: slideDown .3s ease;
+    }
+
+    nav a {
+        text-align: center;
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 560px) {
+    section {
+        padding: 65px 5%;
+    }
+
+    .hero {
+        min-height: 78vh;
+    }
+
+    .hero::before, .hero::after {
+        font-size: 100px;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-image {
+        height: 260px;
+    }
+
+    .about-grid, .facts-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-card, .contact-info, .contact-form {
+        padding: 24px;
+    }
+
+    .logo {
+        font-size: 22px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div id="loading">
+    <div class="loading-heart">💖</div>
+    <h2>Preparando um mundo de magia...</h2>
+    <p>Bem-vinda ao Universo Chiquititas! ✨</p>
+</div>
+
+<div id="floating-hearts"></div>
+
+<header>
+    <div class="navbar">
+        <a href="#inicio" class="logo"><span>🌸</span> Chiquititas</a>
+
+        <button class="menu-btn" id="menuBtn" aria-label="Abrir menu">☰</button>
+
+        <nav id="nav">
+            <a href="#inicio" class="active">🏠 Início</a>
+            <a href="#sobre">💗 Sobre</a>
+            <a href="#galeria">📸 Galeria</a>
+            <a href="#memorias">🌈 Memórias</a>
+            <a href="#contato">💌 Contato</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+
+<section class="hero" id="inicio">
+    <span class="decor d1">✨</span>
+    <span class="decor d2">💗</span>
+    <span class="decor d3">⭐</span>
+    <span class="decor d4">🦋</span>
+
+    <div class="hero-content">
+        <span class="hero-label">🌈 Um lugar cheio de sonhos e amizade</span>
+
+        <h1>Universo<br>Chiquititas</h1>
+
+        <p>
+            Entre músicas, amizades, aventuras e momentos inesquecíveis,
+            venha conhecer um mundo onde o amor e a união fazem toda a diferença! 💕
+        </p>
+
+        <div class="hero-buttons">
+            <a href="#galeria" class="btn btn-primary">✨ Explorar a galeria</a>
+            <a href="#sobre" class="btn btn-secondary">💖 Conhecer o universo</a>
+        </div>
+    </div>
+</section>
+
+<section class="about" id="sobre">
+    <div class="section-title reveal">
+        <span class="mini">💖 Nosso mundinho</span>
+        <h2>Sobre Chiquititas</h2>
+        <p>Uma história que marcou gerações e continua conquistando corações!</p>
+    </div>
+
+    <div class="about-grid">
+        <article class="about-card reveal">
+            <span class="emoji">🏡</span>
+            <h3>O orfanato Raio de Luz</h3>
+            <p>
+                O orfanato é um dos principais cenários da história.
+                É lá que as crianças vivem aventuras, criam laços de amizade
+                e descobrem a importância de ter uma família.
+            </p>
+        </article>
+
+        <article class="about-card reveal">
+            <span class="emoji">🎶</span>
+            <h3>Música e diversão</h3>
+            <p>
+                As músicas e as apresentações fazem parte da magia de Chiquititas,
+                trazendo alegria, emoção e momentos que ficam guardados na memória.
+            </p>
+        </article>
+
+        <article class="about-card reveal">
+            <span class="emoji">🫶</span>
+            <h3>Amizade de verdade</h3>
+            <p>
+                A história mostra como ajudar uns aos outros, respeitar as diferenças
+                e permanecer unidos pode tornar até os dias difíceis mais especiais.
+            </p>
+        </article>
+
+        <article class="about-card reveal">
+            <span class="emoji">🌟</span>
+            <h3>Sonhos e esperança</h3>
+            <p>
+                Cada personagem tem sua personalidade, seus desafios e seus sonhos.
+                Juntos, eles aprendem sobre coragem, carinho, respeito e esperança.
+            </p>
+        </article>
+    </div>
+</section>
+
+<section class="gallery" id="galeria">
+    <div class="section-title reveal">
+        <span class="mini">📸 Nossos momentos favoritos</span>
+        <h2>Galeria Encantada</h2>
+        <p>
+            Um cantinho especial para reunir personagens, cenas e lembranças
+            desse universo tão querido. 💕
+        </p>
+    </div>
+
+    <div class="filter-buttons reveal">
+        <button class="filter-btn active" data-filter="todos">🌈 Todos</button>
+        <button class="filter-btn" data-filter="personagens">👧 Personagens</button>
+        <button class="filter-btn" data-filter="amizade">💗 Amizade</button>
+        <button class="filter-btn" data-filter="musica">🎤 Música</button>
+        <button class="filter-btn" data-filter="momentos">✨ Momentos</button>
+    </div>
+
+    <div class="gallery-grid" id="galleryGrid">
+
+        <!-- Para adicionar uma foto, substitua o bloco image-placeholder
+             por: <img src="NOME-DA-SUA-FOTO.jpg" alt="Descrição da foto">
+             e envie a imagem para o mesmo repositório do GitHub. -->
+
+        <article class="gallery-card reveal" data-category="personagens">
+            <div class="gallery-image">
+                <div class="image-placeholder">
+                    <span class="big-emoji">🌸</span>
+                    <strong>Minha personagem favorita</strong>
+                    <span>Adicione aqui sua foto favorita de Chiquititas</span>
+                </div>
+            </div>
+            <div class="gallery-info">
+                <h3>Personagens inesquecíveis</h3>
+                <p>Os rostinhos que fizeram parte de tantas histórias e aventuras.</p>
+                <span class="tag">👧 Personagens</span>
+            </div>
+        </article>
+
+        <article class="gallery-card reveal" data-category="amizade">
+            <div class="gallery-image">
+                <div class="image-placeholder" style="background:linear-gradient(135deg,#ffd6e8,#ffc5b8)">
+                    <span class="big-emoji">🫶</span>
+                    <strong>Amizade para sempre</strong>
+                    <span>Adicione uma cena especial de amizade</span>
+                </div>
+            </div>
+            <div class="gallery-info">
+                <h3>Amizade verdadeira</h3>
+                <p>Momentos que mostram como é bom ter alguém ao nosso lado.</p>
+                <span class="tag">💗 Amizade</span>
+            </div>
+        </article>
+
+        <article class="gallery-card reveal" data-category="musica">
+            <div class="gallery-image">
+                <div class="image-placeholder" style="background:linear-gradient(135deg,#fff0a9,#ffc9e8)">
+                    <span class="big-emoji">🎤</span>
+                    <strong>É hora de cantar!</strong>
+                    <span>Adicione uma foto de uma apresentação musical</span>
+                </div>
+            </div>
+            <div class="gallery-info">
+                <h3>Música e alegria</h3>
+                <p>Canções e apresentações que deixam tudo mais divertido.</p>
+                <span class="tag">🎶 Música</span>
+            </div>
+        </article>
+
+        <article class="gallery-card reveal" data-category="personagens">
+            <div class="gallery-image">
+                <div class="image-placeholder" style="background:linear-gradient(135deg,#d9c5ff,#ffdaed)">
+                    <span class="big-emoji">⭐</span>
+                    <strong>Um elenco especial</strong>
+                    <span>Adicione uma foto do elenco</span>
+                </div>
+            </div>
+            <div class="gallery-info">
+                <h3>Nosso elenco</h3>
+                <p>As pessoas que deram vida a personagens tão queridos.</p>
+                <span class="tag">🌟 Personagens</span>
+            </div>
+        </article>
+
+        <article class="gallery-card reveal" data-category="momentos">
+            <div class="gallery-image">
+                <div class="image-placeholder" style="background:linear-gradient(135deg,#c9f4ff,#d7d0ff)">
+                    <span class="big-emoji">🏡</span>
+                    <strong>Lar doce lar</strong>
+                    <span>Adicione uma cena do orfanato</span>
+                </div>
+            </div>
+            <div class="gallery-info">
+                <h3>Raio de Luz</h3>
+                <p>Um lugar cheio de descobertas, histórias e convivência.</p>
+                <span class="tag">🏡 Momentos</span>
+            </div>
+        </article>
+
+        <article class="gallery-card reveal" data-category="amizade">
+            <div class="gallery-image">
+                <div class="image-placeholder" style="background:linear-gradient(135deg,#ffe7a7,#ffcde5)">
+                    <span class="big-emoji">🦋</span>
+                    <strong>Memórias especiais</strong>
+                    <span>Adicione aquela cena que você ama</span>
+                </div>
+            </div>
+            <div class="gallery-info">
+                <h3>Momentos inesquecíveis</h3>
+                <p>Pequenas lembranças que deixam uma história ainda mais especial.</p>
+                <span class="tag">💞 Amizade</span>
+            </div>
+        </article>
+
+        <article class="gallery-card reveal" data-category="musica">
+            <div class="gallery-image">
+                <div class="image-placeholder" style="background:linear-gradient(135deg,#ffd0eb,#d4e5ff)">
+                    <span class="big-emoji">🎵</span>
+                    <strong>Nosso ritmo</strong>
+                    <span>Adicione uma imagem de um momento musical</span>
+                </div>
+            </div>
+            <div class="gallery-info">
+                <h3>O poder da música</h3>
+                <p>A música aproxima as pessoas e transforma momentos em lembranças.</p>
+                <span class="tag">🎤 Música</span>
+            </div>
+        </article>
+
+        <article class="gallery-card reveal" data-category="momentos">
+            <div class="gallery-image">
+                <div class="image-placeholder" style="background:linear-gradient(135deg,#ffe4b7,#e8d2ff)">
+                    <span class="big-emoji">🌈</span>
+                    <strong>Um mundo de cores</strong>
+                    <span>Adicione uma cena divertida da novela</span>
+                </div>
+            </div>
+            <div class="gallery-info">
+                <h3>Aventuras coloridas</h3>
+                <p>Cada dia traz uma nova aventura, uma surpresa ou uma descoberta.</p>
+                <span class="tag">✨ Momentos</span>
+            </div>
+        </article>
+
+        <article class="gallery-card reveal" data-category="personagens">
+            <div class="gallery-image">
+                <div class="image-placeholder" style="background:linear-gradient(135deg,#ffbfdc,#bfeaff)">
+                    <span class="big-emoji">💝</span>
+                    <strong>Um carinho especial</strong>
+                    <span>Adicione uma foto da sua personagem favorita</span>
+                </div>
+            </div>
+            <div class="gallery-info">
+                <h3>Com muito carinho</h3>
+                <p>Um espaço para guardar fotos e cenas que fazem você sorrir.</p>
+                <span class="tag">💖 Personagens</span>
+            </div>
+        </article>
+
+    </div>
+</section>
+
+<section class="memory" id="memorias">
+    <div class="memory-inner reveal">
+        <div class="memory-heart">💖</div>
+        <h2>Uma história que mora no coração!</h2>
+        <p>
+            Chiquititas é sobre muito mais do que uma novela.
+            É sobre encontrar amizade onde menos esperamos, aprender a compartilhar,
+            acreditar nos sonhos e perceber que o carinho pode transformar nossas vidas.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="#galeria" class="btn btn-primary" style="background:white;color:#a05fbd">
+                📸 Ver a galeria
+            </a>
+            <button class="btn btn-secondary" id="heartBtn">
+                💕 Espalhar corações
+            </button>
+        </div>
+    </div>
+</section>
+
+<section class="fun-facts" id="curiosidades">
+    <div class="section-title reveal">
+        <span class="mini">🌟 Um pouquinho de tudo</span>
+        <h2>Nosso Cantinho</h2>
+        <p>Três coisas que deixam esse universo ainda mais especial.</p>
+    </div>
+
+    <div class="facts-grid">
+        <article class="fact reveal">
+            <div class="emoji">🎭</div>
+            <h3>Personagens</h3>
+            <p>Cada personagem tem sua própria história, personalidade e sonhos.</p>
+        </article>
+
+        <article class="fact reveal">
+            <div class="emoji">🎶</div>
+            <h3>Canções</h3>
+            <p>A música é uma parte marcante da história e de seus momentos especiais.</p>
+        </article>
+
+        <article class="fact reveal">
+            <div class="emoji">💞</div>
+            <h3>Valores</h3>
+            <p>Amizade, respeito, solidariedade e esperança estão entre os temas da novela.</p>
+        </article>
+    </div>
+</section>
+
+<section class="contact" id="contato">
+    <div class="section-title reveal">
+        <span class="mini">💌 Vamos conversar?</span>
+        <h2>Entre em Contato</h2>
+        <p>Tem uma personagem favorita ou uma lembrança especial? Este espaço é seu!</p>
+    </div>
+
+    <div class="contact-grid">
+        <div class="contact-info reveal">
+            <h3>💕 Oi, chiquitita!</h3>
+            <p>
+                Que bom ter você por aqui! Este site é um cantinho feito
+                para celebrar as histórias, os personagens e os momentos
+                especiais de Chiquititas.
+            </p>
+
+            <div class="contact-item">🌸 Compartilhe sua personagem favorita</div>
+            <div class="contact-item">📸 Conte qual cena você mais ama</div>
+            <div class="contact-item">💖 Envie uma mensagem especial</div>
+            <div class="contact-item">✨ Faça parte desse universo</div>
+        </div>
+
+        <form class="contact-form reveal" id="contactForm">
+            <h3>Envie sua mensagem ✨</h3>
+
+            <div class="form-group">
+                <label for="nome">Seu nome 💗</label>
+                <input type="text" id="nome" placeholder="Como podemos te chamar?" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Seu e-mail 📧</label>
+                <input type="email" id="email" placeholder="seuemail@exemplo.com" required>
+            </div>
+
+            <div class="form-group">
+                <label for="favorita">Sua personagem favorita 🌸</label>
+                <select id="favorita" required>
+                    <option value="">Escolha uma opção</option>
+                    <option>Mili</option>
+                    <option>Vivi</option>
+                    <option>Bia</option>
+                    <option>Pata</option>
+                    <option>Tati</option>
+                    <option>Ana</option>
+                    <option>Outra personagem</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="mensagem">Sua mensagem 💌</label>
+                <textarea id="mensagem" placeholder="Escreva aqui sua mensagem..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Enviar mensagem 💖</button>
+            <p id="formStatus" style="margin-top:12px;text-align:center" aria-live="polite"></p>
+        </form>
+    </div>
+</section>
+
+</main>
+
+<footer>
+    <div class="footer-logo">🌸 Universo Chiquititas 🌸</div>
+    <p>Um cantinho de amizade, sonhos e muitas cores! 💕</p>
+    <p>Feito com carinho por uma fã de Chiquititas ✨</p>
+    <div class="footer-hearts">💗 💜 💛 💙 💖</div>
+    <p style="font-size:13px;margin-top:12px;opacity:.7">
+        Site de fã, sem vínculo oficial com os produtores da novela.
+    </p>
+</footer>
+
+<button id="topBtn" aria-label="Voltar ao início" title="Voltar ao início">↑</button>
+
+<script>
+const menuBtn = document.getElementById('menuBtn');
+const nav = document.getElementById('nav');
+
+menuBtn.addEventListener('click', () => {
+    nav.classList.toggle('open');
+    menuBtn.textContent = nav.classList.contains('open') ? '✕' : '☰';
+});
+
+document.querySelectorAll('#nav a').forEach(link => {
+    link.addEventListener('click', () => {
+        nav.classList.remove('open');
+        menuBtn.textContent = '☰';
+    });
+});
+
+// Filtros da galeria
+const filterButtons = document.querySelectorAll('.filter-btn');
+const galleryCards = document.querySelectorAll('.gallery-card');
+
+filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        filterButtons.forEach(item => item.classList.remove('active'));
+        button.classList.add('active');
+
+        const filter = button.dataset.filter;
+
+        galleryCards.forEach((card, index) => {
+            const show = filter === 'todos' || card.dataset.category === filter;
+
+            card.classList.toggle('hidden', !show);
+
+            if (show) {
+                card.style.animation = 'none';
+                void card.offsetWidth;
+                card.style.animation = `slideDown .4s ease ${Math.min(index * .04, .3)}s both`;
+            }
+        });
+    });
+});
+
+// Animações ao aparecer na tela
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.12 });
+
+document.querySelectorAll('.reveal').forEach(element => observer.observe(element));
+
+// Botão para voltar ao topo
+const topBtn = document.getElementById('topBtn');
+
+window.addEventListener('scroll', () => {
+    topBtn.classList.toggle('show', window.scrollY > 400);
+}, { passive: true });
+
+topBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// Corações flutuantes
+const floatingHearts = document.getElementById('floating-hearts');
+const heartSymbols = ['💖', '💕', '💗', '💜', '✨', '🌸', '💝'];
+
+function createHeart() {
+    if (document.hidden) return;
+
+    const heart = document.createElement('span');
+    heart.className = 'floating-heart';
+    heart.textContent = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
+
+    heart.style.left = Math.random() * 100 + '%';
+    heart.style.fontSize = (14 + Math.random() * 18) + 'px';
+    heart.style.animationDuration = (4 + Math.random() * 4) + 's';
+
+    floatingHearts.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 8500);
+}
+
+let heartInterval = setInterval(createHeart, 1100);
+
+document.getElementById('heartBtn').addEventListener('click', () => {
+    for (let i = 0; i < 25; i++) {
+        setTimeout(createHeart, i * 100);
+    }
+});
+
+// Formulário demonstrativo
+document.getElementById('contactForm').addEventListener('submit', event => {
+    event.preventDefault();
+
+    const nome = document.getElementById('nome').value.trim();
+    const favorita = document.getElementById('favorita').value;
+    const mensagem = document.getElementById('mensagem').value.trim();
+    const status = document.getElementById('formStatus');
+
+    if (!nome || !favorita || !mensagem) {
+        status.textContent = 'Preencha os campos para continuar! 💗';
+        return;
+    }
+
+    status.textContent =
+        'Obrigada, ' + nome + '! 💖 Sua personagem favorita é ' +
+        favorita + '. O formulário está funcionando visualmente, mas ainda precisa de integração para enviar sua mensagem de verdade.';
+
+    status.style.color = '#a05fbd';
+});
+
+// Navegação ativa conforme a seção
+const sections = document.querySelectorAll('main section[id]');
+const navLinks = document.querySelectorAll('#nav a');
+
+const activeObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            navLinks.forEach(link => {
+                link.classList.toggle(
+                    'active',
+                    link.getAttribute('href') === '#' + entry.target.id
+                );
+            });
+        }
+    });
+}, { rootMargin: '-30% 0px -60% 0px' });
+
+sections.forEach(section => activeObserver.observe(section));
+</script>
+
+</body>
+</html>
