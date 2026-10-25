@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galeria de Filmes | Mundo Bruxo</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .introducao {
+      text-align: center;
+      padding: 45px 8% 20px;
+    }
+    .introducao h1 {
+      color: #e3c36c;
+      font-size: clamp(32px, 6vw, 46px);
+      margin-bottom: 12px;
+    }
+    .introducao p {
+      color: #d5cedd;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .galeria {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 25px;
+      padding: 30px 8% 60px;
+    }
+    .filme {
+      background: #1d1928;
+      border: 2px solid #393044;
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .filme:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 25px #00000050;
+    }
+    .filme img {
+      width: 100%;
+      aspect-ratio: 2 / 3;
+      object-fit: cover;
+      background: #292333;
+      display: block;
+    }
+    .filme-conteudo {
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .filme h2 {
+      font-size: 20px;
+      color: #f0d98b;
+      margin-bottom: 8px;
+    }
+    .ano {
+      color: #e3c36c;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .sinopse {
+      color: #d5cedd;
+      font-size: 14px;
+      line-height: 1.7;
+      margin-bottom: 0;
+    }
+    .filme:nth-child(4n + 1) {
+      border-color: #a52a35;
+    }
+    .filme:nth-child(4n + 2) {
+      border-color: #247653;
+    }
+    .filme:nth-child(4n + 3) {
+      border-color: #3976b8;
+    }
+    .filme:nth-child(4n) {
+      border-color: #c9a64b;
+    }
+    .casas-legenda {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding: 0 15px 20px;
+    }
+    .casa-tag {
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 13px;
+      background: #1d1928;
+      border: 1px solid #51415f;
+    }
+    @media (max-width: 600px) {
+      .galeria {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+        padding: 25px 5% 45px;
+      }
+      .filme-conteudo {
+        padding: 11px;
+      }
+      .filme h2 {
+        font-size: 17px;
+      }
+      .sinopse {
+        font-size: 13px;
+      }
+    }
+    @media (max-width: 360px) {
+      .galeria {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">⚡ Mundo Bruxo</div>
+    <nav>
+      <a href="index.html">Início</a>
+      <a href="galeria.html">Galeria</a>
+      <a href="formulario.html">Formulário</a>
+    </nav>
+  </header>
+  <main>
+    <section class="introducao">
+      <h1>🎬 Galeria de Filmes</h1>
+      <p>
+        Relembre os oito filmes de Harry Potter!
+        Conheça um pouquinho de cada aventura,
+        desde a primeira visita a Hogwarts até a batalha final.
+      </p>
+    </section>
+    <div class="casas-legenda">
+      <span class="casa-tag">🦁 Grifinória</span>
+      <span class="casa-tag">🐍 Sonserina</span>
+      <span class="casa-tag">🦅 Corvinal</span>
+      <span class="casa-tag">🦡 Lufa-Lufa</span>
+    </div>
+    <section class="galeria">
+      <!-- FILME 1: A PEDRA FILOSOFAL -->
+      <article class="filme">
+        <img
+          src="https://image.tmdb.org/t/p/w500/wuMc08IPKEatf9rnMNXvIDxqP4W.jpg"
+          alt="Pôster de Harry Potter e a Pedra Filosofal"
+          loading="eager"
+        >
+        <div class="filme-conteudo">
+          <h2>Harry Potter e a Pedra Filosofal</h2>
+          <p class="ano">📅 2001</p>
+          <p class="sinopse">
+            Harry descobre que é um bruxo e começa a estudar
+            em Hogwarts. Lá, faz amizade com Rony e Hermione
+            e conhece um mundo cheio de magia, mistérios e
+            descobertas surpreendentes.
+          </p>
+        </div>
+      </article>
+      <!-- FILME 2: A CÂMARA SECRETA -->
+      <article class="filme">
+        <img
+          src="https://image.tmdb.org/t/p/w500/sdEOH0992YZ0QSxgXNIGLq1ToUi.jpg"
+          alt="Pôster de Harry Potter e a Câmara Secreta"
+          loading="lazy"
+        >
+        <div class="filme-conteudo">
+          <h2>Harry Potter e a Câmara Secreta</h2>
+          <p class="ano">📅 2002</p>
+          <p class="sinopse">
+            No segundo ano em Hogwarts, acontecimentos
+            misteriosos assustam os alunos. Harry e seus
+            amigos investigam uma antiga lenda da escola
+            para descobrir o que está acontecendo.
+          </p>
+        </div>
+      </article>
+      <!-- FILME 3: O PRISIONEIRO DE AZKABAN -->
+      <article class="filme">
+        <img
+          src="https://image.tmdb.org/t/p/w500/aWxwnYoe8p2d2fcxOqtvAtJ72Rw.jpg"
+          alt="Pôster de Harry Potter e o Prisioneiro de Azkaban"
+          loading="lazy"
+        >
+        <div class="filme-conteudo">
+          <h2>Harry Potter e o Prisioneiro de Azkaban</h2>
+          <p class="ano">📅 2004</p>
+          <p class="sinopse">
+            Harry aprende mais sobre o passado de seus pais
+            quando Sirius Black, um prisioneiro misterioso,
+            escapa de Azkaban. Segredos e novas criaturas
+            mágicas tornam o ano cheio de surpresas.
+          </p>
+        </div>
+      </article>
+      <!-- FILME 4: O CÁLICE DE FOGO -->
+      <article class="filme">
+        <img
+          src="https://image.tmdb.org/t/p/w500/fECBtHlr0RB3foNHDiCBXeg9Bv9.jpg"
+          alt="Pôster de Harry Potter e o Cálice de Fogo"
+          loading="lazy"
+        >
+        <div class="filme-conteudo">
+          <h2>Harry Potter e o Cálice de Fogo</h2>
+          <p class="ano">📅 2005</p>
+          <p class="sinopse">
+            Harry acaba participando inesperadamente do
+            perigoso Torneio Tribruxo. Entre desafios mágicos
+            e novas experiências, acontecimentos importantes
+            mudam o rumo da história.
+          </p>
+        </div>
+      </article>
+      <!-- FILME 5: A ORDEM DA FÊNIX -->
+      <article class="filme">
+        <img
+          src="https://image.tmdb.org/t/p/w500/5aOyriWkPec0zUDxmHFP9qMmBaj.jpg"
+          alt="Pôster de Harry Potter e a Ordem da Fênix"
+          loading="lazy"
+        >
+        <div class="filme-conteudo">
+          <h2>Harry Potter e a Ordem da Fênix</h2>
+          <p class="ano">📅 2007</p>
+          <p class="sinopse">
+            Enquanto muitos duvidam dos avisos de Harry sobre
+            o retorno de Voldemort, ele e seus amigos se
+            organizam para aprender a se defender. Coragem
+            e união se tornam essenciais.
+          </p>
+        </div>
+      </article>
+      <!-- FILME 6: O ENIGMA DO PRÍNCIPE -->
+      <article class="filme">
+        <img
+          src="https://image.tmdb.org/t/p/w500/7xXJ15VEf7G9GdAuV1dO769yC73.jpg"
+          alt="Pôster de Harry Potter e o Enigma do Príncipe"
+          loading="lazy"
+        >
+        <div class="filme-conteudo">
+          <h2>Harry Potter e o Enigma do Príncipe</h2>
+          <p class="ano">📅 2009</p>
+          <p class="sinopse">
+            Harry aprende mais sobre o passado de Voldemort
+            com Dumbledore. Enquanto novos mistérios surgem,
+            os personagens enfrentam mudanças e decisões
+            cada vez mais difíceis.
+          </p>
+        </div>
+      </article>
+      <!-- FILME 7: RELÍQUIAS DA MORTE - PARTE 1 -->
+      <article class="filme">
+        <img
+          src="https://image.tmdb.org/t/p/w500/iGoXIpQb7Pot00EEdwpwPajheZ5.jpg"
+          alt="Pôster de Harry Potter e as Relíquias da Morte – Parte 1"
+          loading="lazy"
+        >
+        <div class="filme-conteudo">
+          <h2>Harry Potter e as Relíquias da Morte – Parte 1</h2>
+          <p class="ano">📅 2010</p>
+          <p class="sinopse">
+            Longe de Hogwarts, Harry, Rony e Hermione partem
+            em uma missão perigosa para encontrar objetos
+            essenciais à derrota de Voldemort. A amizade
+            e a coragem são colocadas à prova.
+          </p>
+        </div>
+      </article>
+      <!-- FILME 8: RELÍQUIAS DA MORTE - PARTE 2 -->
+      <article class="filme">
+        <img
+          src="https://image.tmdb.org/t/p/w500/n5A7brJCjejceZmHyujwUTVgQNC.jpg"
+          alt="Pôster de Harry Potter e as Relíquias da Morte – Parte 2"
+          loading="lazy"
+        >
+        <div class="filme-conteudo">
+          <h2>Harry Potter e as Relíquias da Morte – Parte 2</h2>
+          <p class="ano">📅 2011</p>
+          <p class="sinopse">
+            A jornada chega ao seu grande final. Harry e
+            seus aliados enfrentam a batalha decisiva,
+            enquanto mistérios antigos são esclarecidos
+            e o destino do mundo bruxo é definido.
+          </p>
+        </div>
+      </article>
+    </section>
+    <section style="text-align: center; padding-top: 0;">
+      <h2 style="margin-bottom: 15px;">Qual é o seu favorito?</h2>
+      <p style="color: #d5cedd; margin-bottom: 20px;">
+        Conte para nós qual filme mais marcou você!
+      </p>
+      <a href="formulario.html" class="botao">
+        ✨ Responder ao formulário
+      </a>
+    </section>
+  </main>
+  <footer>
+    <p>Projeto de fã sobre o universo de Harry Potter.</p>
+    <p>Harry Potter pertence aos seus respectivos criadores e detentores de direitos.</p>
+  </footer>
+</body>
+</html>
